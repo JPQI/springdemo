@@ -1,8 +1,11 @@
 package pe.spring.demo.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +31,12 @@ public class EmpleadoController {
     }
 	
 	@RequestMapping(value = "/empleado", method=RequestMethod.POST)
-	public String processForm(@ModelAttribute(value="empl") Empleado empleado, Model model) {
+	public String processForm(@ModelAttribute(value="empl") @Valid Empleado empleado, BindingResult bindingResult, Model model) {
+		
+		if (bindingResult.hasErrors()) {
+            model.addAttribute("empl", empleado);
+            return "empleado";
+        }
 		
 		empleadoService.registrar(empleado);
 		

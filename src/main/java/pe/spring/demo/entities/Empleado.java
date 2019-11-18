@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -18,7 +19,8 @@ public class Empleado {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
     private Integer id;
 	
-	@Size(min = 3, message = "Minimo 3 caracteres")
+	@Size(min = 3, message = "Nombre: Mínimo 3 caracteres")
+	@NotNull
 	@Column(name = "nombre")
 	private String nombre;
 	

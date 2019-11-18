@@ -5,7 +5,7 @@ CREATE TABLE empleado (
   telefono varchar(255)
 );
 
-INSERT INTO empleado (id, nombre, departamento, telefono) values(1, 'Juan Perez', 'LogÃ­stica', '5742130');
+INSERT INTO empleado (id, nombre, departamento, telefono) values(1, 'Juan Perez', 'Logística', '5742130');
 INSERT INTO empleado (id, nombre, departamento, telefono) values(2, 'Pedro Soto', 'RRHH', '5234120');
 
 --agregar identity by column

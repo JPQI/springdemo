@@ -26,6 +26,11 @@
             </div>
             
             <form id="registra_empl" action="#" th:action="@{/empleado}" th:object="${empl}" method="post">
+            
+            	<ul th:if="${#fields.hasErrors('*')}">
+				  <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+				</ul>
+            
             	<input type="hidden" th:field="*{id}">
             	Nombre <input type="text" class="form-control" th:field="*{nombre}">
             	Departamento <input type="text" class="form-control" th:field="*{departamento}">

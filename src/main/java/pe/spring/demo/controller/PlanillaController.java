@@ -28,6 +28,6 @@ public class PlanillaController {
 		empleadoService.eliminar(id);
 		model.addAttribute("empleados", empleadoService.listar());
 		
-        return "planilla";
+		return "redirect:/planilla";
     }
 }
