@@ -13,6 +13,7 @@
         <org.springframework.data.version>2.0.7.RELEASE</org.springframework.data.version>
         <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
         <junit.version>4.12</junit.version>
+        <spring.security.version>5.2.1.RELEASE</spring.security.version>
     </properties>
 
     <dependencies>
@@ -45,6 +46,13 @@
             <artifactId>thymeleaf-spring5</artifactId>
             <version>${thymeleaf.version}</version>
         </dependency>
+        
+        <!-- security taglibs -->
+		<dependency>
+		    <groupId>org.thymeleaf.extras</groupId>
+		    <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		    <version>3.0.4.RELEASE</version>
+		</dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -65,21 +73,76 @@
 	  		<version>5.2.17.Final</version>
 	  	</dependency>
 	  	
+	  	<!-- validaciones -->
 	  	<dependency>
 		    <groupId>javax.validation</groupId>
 		    <artifactId>validation-api</artifactId>
 		    <version>2.0.0.Final</version>
 		</dependency>
 		
+		<!-- para tomcat 7.0
 	  	<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-validator</artifactId>
 		    <version>5.4.3.Final</version>
 		</dependency>
+		-->
+		
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.0.2.Final</version>
+		</dependency>
+		
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
 		    <artifactId>hibernate-validator-annotation-processor</artifactId>
 		    <version>6.0.2.Final</version>
+		</dependency>
+		
+		<!-- Spring Security -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>${spring.security.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>${spring.security.version}</version>
+		</dependency>
+		 
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>${spring.security.version}</version>
+		</dependency>
+		
+		<!-- log -->
+		<dependency>
+	        <groupId>org.projectlombok</groupId>
+	        <artifactId>lombok</artifactId>
+	        <version>1.18.4</version>
+	        <scope>provided</scope>
+	    </dependency>
+	    
+	    <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		
+		<!-- Rest -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.10.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.10.1</version>
 		</dependency>
 		
     </dependencies>

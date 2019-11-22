@@ -14,6 +14,8 @@
 	<script th:src="@{/resources/js/main.js}"></script>
 </head>
 <body>
+	<div th:replace="_sys.omenu :: omenu" />
+
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -25,11 +27,17 @@
                 </div>
             </div>
             
-            <form id="registra_empl" action="#" th:action="@{/empleado}" th:object="${empl}" method="post">
+            <div th:classappend="${errores} ? 'alert alert-danger' : ''">
+             	<span th:text="${errores}"></span>
+            </div>
             
-            	<ul th:if="${#fields.hasErrors('*')}">
-				  <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
-				</ul>
+            <form id="registra_empl" action="#" th:action="@{/empleado}" th:object="${empl}" method="post">
+            	            
+            	<div th:classappend="${#fields.hasErrors('*')} ? 'alert alert-danger' : ''">
+	            	<ul th:if="${#fields.hasErrors('*')}">
+					  	<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+					</ul>
+				</div>
             
             	<input type="hidden" th:field="*{id}">
             	Nombre <input type="text" class="form-control" th:field="*{nombre}">

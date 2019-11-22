@@ -14,7 +14,7 @@ public class PlanillaController {
 	@Autowired
 	private IEmpleadoService empleadoService;
     
-	@GetMapping({"/planilla"})
+	@GetMapping({"/", "/planilla"})
     public String getView(Model model) {
         model.addAttribute("empleados", empleadoService.listar());
         //model.addAttribute("empl", new Empleado());

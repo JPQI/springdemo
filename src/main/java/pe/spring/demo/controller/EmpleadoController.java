@@ -38,10 +38,23 @@ public class EmpleadoController {
             return "empleado";
         }
 		
-		empleadoService.registrar(empleado);
+		//empleadoService.registrar(empleado);
+		empleadoService.guardarEmpleado(empleado);
 		
 		model.addAttribute("empleados", empleadoService.listar());
 		
 	  return "redirect:/planilla";
 	}
+	
+	/*@ExceptionHandler({Exception.class})
+	public ModelAndView handleException(Exception ex)
+	{
+	    ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.setViewName("empleado");
+	    
+	    modelAndView.addObject("empl", new Empleado());
+	    modelAndView.addObject("errores", ex);
+	    
+	    return modelAndView;
+	}*/
 }

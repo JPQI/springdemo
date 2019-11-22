@@ -1,0 +1,15 @@
+		<div class="mdl-layout__drawer sbs-menu" th:fragment="omenu">
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="#">Sistema de RRHH | Usuario: <span sec:authentication="name"></span></a>
+			    </div>
+			    <ul class="nav navbar-nav">
+			      <li class="active"><a href="#" onclick="location.href='./planilla'">Inicio</a></li>
+			      <li><a href="#" onclick="document.getElementById('form_logout').submit();">Salir</a>
+			      	  <form action="#" th:action="@{/logout}" method="post" id="form_logout"></form>
+			      </li>
+			    </ul>
+			  </div>
+			</nav>
+		</div>
