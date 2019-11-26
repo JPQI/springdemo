@@ -45,8 +45,8 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 		Seguro seguro = new Seguro();
 		seguro.setEmpId(empleado.getId());
 		seguro.setAseguradora("RIMAC");
-		seguro.setCobertura(new BigDecimal("ss"));
-		//seguro.setCobertura(new BigDecimal(20000));
+		//seguro.setCobertura(new BigDecimal("ss"));
+		seguro.setCobertura(new BigDecimal(20000));
 		
 		seguroDao.insertSeguro(seguro);
 		
