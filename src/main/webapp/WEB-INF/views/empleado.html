@@ -43,6 +43,11 @@
             	Nombre <input type="text" class="form-control" th:field="*{nombre}">
             	Departamento <input type="text" class="form-control" th:field="*{departamento}">
             	Tel&eacute;fono <input type="text" class="form-control" th:field="*{telefono}">
+            	Sexo <select th:field="*{sexo}" class="form-control"><option value=""></option>
+		                         <option th:each="sexoList : ${sexoList}"
+		                            th:value="${sexoList.codTabla}"
+		                            th:utext="${sexoList.valor}"/>
+                  </select>
             	
             	<div class="row submit-row">
 					<button type="submit" class="btn btn-block submit-form button-container">Guardar</button>

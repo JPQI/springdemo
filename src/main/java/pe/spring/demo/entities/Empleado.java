@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -29,6 +30,12 @@ public class Empleado {
 	
 	@Column(name = "telefono")
 	private String telefono;
+	
+	@Column(name = "sexo")
+	/*@NotNull(message = "Sexo: Seleccione un valor")
+	@NotEmpty(message = "Sexo: Seleccione un valor")*/
+	@NotBlank(message = "Sexo: Seleccione un valor")
+	private String sexo;
 
 	public Integer getId() {
 		return id;
@@ -60,6 +67,14 @@ public class Empleado {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
 }

@@ -18,7 +18,10 @@
   
   	<div class="fadeIn first">
     </div>
-    <p th:if="${loginError}" class="error">Usuario o Password inv&aacute;lido</p>
+    
+    <div th:classappend="${loginError} ? 'alert alert-danger' : ''">
+    	<p th:if="${loginError}" class="error">Usuario o Password inv&aacute;lido</p>
+    </div>
 
     <!-- Login Form -->
     <form th:action="@{/login}" method="POST">
