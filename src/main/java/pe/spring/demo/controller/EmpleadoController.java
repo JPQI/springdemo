@@ -22,7 +22,7 @@ public class EmpleadoController {
 	@Autowired
 	private IEmpleadoService empleadoService;
 	@Autowired
-	private ITablaMaestraService tablaMaestraService;
+	private I TablaMaestraService tablaMaestraService;
     
 	@GetMapping({"/empleado"})
     public String getView(@RequestParam(value = "id", required = false) Integer id,
