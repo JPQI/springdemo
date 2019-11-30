@@ -3,6 +3,8 @@ package pe.spring.demo.controller;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import pe.spring.demo.entities.Empleado;
+import pe.spring.demo.entities.TablaMaestra;
 import pe.spring.demo.services.IEmpleadoService;
+import pe.spring.demo.services.ITablaMaestraService;
 
 
 @RunWith(SpringRunner.class)
@@ -29,6 +33,9 @@ public class EmpleadoControllerTest {
 	
 	@Mock
 	private IEmpleadoService service;
+	
+	@Mock
+	private ITablaMaestraService tablaService;
 	
 	@Mock
 	private BindingResult binding;
@@ -55,6 +62,7 @@ public class EmpleadoControllerTest {
 	public void postEmpleado_NotValidEmpleado() throws Exception {
 		
 		when(binding.hasErrors()).thenReturn(false);
+		when(tablaService.listar()).thenReturn(new ArrayList<TablaMaestra>());
 		
 	    String view = empleadoController.processForm(new Empleado(), binding, model);
 	    assertEquals("redirect:/planilla", view);
