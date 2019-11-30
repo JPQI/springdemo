@@ -21,20 +21,32 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Planilla de empleados</b></h2></div>
+                    <div class="col-sm-8"><h2>Consulta de empleados</b></h2></div>
                     <div class="col-sm-4">
-                    	<button type="button" class="btn btn-info add-new" onclick="location.href='./consulta'"><i class="fa fa-search"></i> Buscar</button>
-                        <button type="button" class="btn btn-info add-new" onclick="location.href='./empleado?id=0'"><i class="fa fa-plus"></i> Add New</button>
+                        
                     </div>
                 </div>
             </div>
+            
+            
+            <form id="registra_empl" action="#" th:action="@{/consulta}" th:object="${empl}" method="post">
+            	
+            	Nombre <input type="text" class="form-control" th:field="*{nombre}">
+            	Departamento <input type="text" class="form-control" th:field="*{departamento}">
+            	Tel&eacute;fono <input type="text" class="form-control" th:field="*{telefono}">
+            	
+            	<div class="row submit-row">
+					<button type="submit" class="btn btn-block submit-form button-container">Buscar</button>
+				</div>
+	       	</form>
+            
+            
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Departamento</th>
                         <th>Tel&eacute;fono</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,12 +54,6 @@
 			            <td id="nombre"><span th:text="${empleado.nombre}"></span></td>
 			            <td id="departamento"><span th:text="${empleado.departamento}"></span></td>
 			            <td id="telefono"><span th:text="${empleado.telefono}"></span></td>
-			            <td>
-                            <a class="edit" title="Editar" data-toggle="tooltip" th:href="@{/empleado(id=  ${empleado.id})}"><i class="material-icons">&#xE254;</i></a>
-                            <span sec:authorize="hasRole('ROLE_ADMIN')">
-                            	<a class="delete" title="Eliminar" data-toggle="tooltip" th:href="@{/delete(id=  ${empleado.id})}"><i class="material-icons">&#xE872;</i></a>
-                            </span>
-                        </td>
 			        </tr>
                 </tbody>
             </table>
