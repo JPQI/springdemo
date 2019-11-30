@@ -15,7 +15,7 @@ import pe.spring.demo.services.IEmpleadoCustomService;
 public class ConsultaController {
 	
 	@Autowired
-	private IEmpleadoCustomService empleadoCustomService;
+	private IEmpleadoCustomService empleadoCustomService; 
 
 	@GetMapping({"/consulta"})
     public String getView(Model model) {
